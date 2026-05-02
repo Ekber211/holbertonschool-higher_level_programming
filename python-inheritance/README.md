@@ -1,2 +1,1 @@
-Python - Hello World project
-Holberton School
+I AM README BUT DONT READ ME

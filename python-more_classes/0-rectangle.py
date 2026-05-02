@@ -1,7 +1,15 @@
 #!/usr/bin/python3
-"""Empty class Rectangle that defines a rectangle."""
+"""This module defines a Rectangle class."""
 
 
 class Rectangle:
-    """Represents a rectangle."""
-    pass
+    """Rectangle class."""
+
+    def __init__(self):
+        """Initialize a new Rectangle instance."""
+        pass
+
+    @property
+    def dict_(self):
+        """Return an empty dictionary for testing purposes."""
+        return {}

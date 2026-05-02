@@ -1,2 +1,1 @@
-Python - Hello World project
-Holberton School
+Yes I am not empty

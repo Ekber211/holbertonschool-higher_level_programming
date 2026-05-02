@@ -1,23 +1,22 @@
 #!/usr/bin/python3
-"""This module prints text with 2 new lines after '.', '?' and ':'."""
+"""Module for text indentation."""
 
 
 def text_indentation(text):
     """Print text with 2 new lines after '.', '?' and ':'."""
-
-    if type(text) is not str:
+    if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    new_line = True
+    i = 0
+    while i < len(text) and text[i] == " ":
+        i += 1
 
-    for char in text:
-        if new_line and char == " ":
-            continue
-
-        new_line = False
-        print(char, end="")
-
-        if char in ".?:":
+    while i < len(text):
+        print(text[i], end="")
+        if text[i] in ".?:":
             print("\n")
-            new_line = True
-            
+            i += 1
+            while i < len(text) and text[i] == " ":
+                i += 1
+            continue
+        i += 1

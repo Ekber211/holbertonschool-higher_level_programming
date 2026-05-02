@@ -1,2 +1,2 @@
-Python - Hello World project
-Holberton School
+Python import modules project
+
