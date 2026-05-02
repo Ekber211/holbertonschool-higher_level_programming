@@ -1,2 +1,1 @@
-Python - Hello World project
-Holberton School
+This is a README file for python restful api tasks

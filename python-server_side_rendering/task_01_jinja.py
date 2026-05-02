@@ -1,28 +1,23 @@
 #!/usr/bin/python3
-"""Flask app using Jinja templates."""
-
 from flask import Flask, render_template
 
 app = Flask(__name__)
 
 
-@app.route("/")
+@app.route('/')
 def home():
-    """Render home page."""
-    return render_template("index.html")
+    return render_template('index.html')
 
 
-@app.route("/about")
+@app.route('/about')
 def about():
-    """Render about page."""
-    return render_template("about.html")
+    return render_template('about.html')
 
 
-@app.route("/contact")
+@app.route('/contact')
 def contact():
-    """Render contact page."""
-    return render_template("contact.html")
+    return render_template('contact.html')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True, port=5000)

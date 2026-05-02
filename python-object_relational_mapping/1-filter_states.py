@@ -1,7 +1,9 @@
 #!/usr/bin/python3
-"""Lists all states with a name starting with N"""
+"""Module that lists states starting with N."""
+
 import MySQLdb
 import sys
+
 
 if __name__ == "__main__":
     db = MySQLdb.connect(
@@ -11,11 +13,13 @@ if __name__ == "__main__":
         passwd=sys.argv[2],
         db=sys.argv[3]
     )
-    cursor = db.cursor()
-    cursor.execute(
-        "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC"
-    )
-    for row in cursor.fetchall():
+
+    cur = db.cursor()
+    query = "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC"
+    cur.execute(query)
+
+    for row in cur.fetchall():
         print(row)
-    cursor.close()
+
+    cur.close()
     db.close()

@@ -1,32 +1,37 @@
 #!/usr/bin/python3
+"""Module for pickling custom objects."""
+
 import pickle
 
+
 class CustomObject:
+    """Custom object with serialization methods."""
+
     def __init__(self, name, age, is_student):
+        """Initialize object."""
         self.name = name
         self.age = age
         self.is_student = is_student
 
     def display(self):
-        """Obyektin atributlarını tələb olunan formatda çap edir."""
+        """Display object attributes."""
         print(f"Name: {self.name}")
         print(f"Age: {self.age}")
         print(f"Is Student: {self.is_student}")
 
     def serialize(self, filename):
-        """Obyekti binar formata salıb fayla yazır."""
+        """Serialize object to a file."""
         try:
-            with open(filename, 'wb') as file:
-                pickle.dump(self, file)
+            with open(filename, "wb") as f:
+                pickle.dump(self, f)
         except Exception:
             return None
 
     @classmethod
     def deserialize(cls, filename):
-        """Fayldan binar məlumatı oxuyub obyekti bərpa edir."""
+        """Deserialize object from a file."""
         try:
-            with open(filename, 'rb') as file:
-                return pickle.load(file)
-        except (FileNotFoundError, pickle.UnpicklingError, EOFError, Exception):
-            # Fayl yoxdursa və ya formatı səhvdirsə None qaytarır
+            with open(filename, "rb") as f:
+                return pickle.load(f)
+        except Exception:
             return None

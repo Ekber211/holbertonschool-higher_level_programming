@@ -1,1 +1,1 @@
-I AM README BUT DONT READ ME
+This is a README file for python inheritance tasks

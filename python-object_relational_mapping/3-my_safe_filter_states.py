@@ -1,7 +1,9 @@
 #!/usr/bin/python3
-"""Safe filter states from SQL injection"""
+"""Module that safely filters states by user input."""
+
 import MySQLdb
 import sys
+
 
 if __name__ == "__main__":
     db = MySQLdb.connect(
@@ -11,12 +13,14 @@ if __name__ == "__main__":
         passwd=sys.argv[2],
         db=sys.argv[3]
     )
-    cursor = db.cursor()
-    cursor.execute(
-        "SELECT * FROM states WHERE name = %s ORDER BY id ASC",
-        (sys.argv[4],)
-    )
-    for row in cursor.fetchall():
+
+    cur = db.cursor()
+    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+    cur.execute(query, (sys.argv[4],))
+
+    rows = cur.fetchall()
+    for row in rows:
         print(row)
-    cursor.close()
+
+    cur.close()
     db.close()

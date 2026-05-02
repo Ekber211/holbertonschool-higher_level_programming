@@ -1,1 +1,1 @@
-SQL more queries
+This is README file for more SQL tasks

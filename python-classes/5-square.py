@@ -1,14 +1,15 @@
 #!/usr/bin/python3
-"""Module that defines a Square class."""
+"""Square module."""
 
 
 class Square:
-    """Represents a square."""
+    """Defines a square."""
 
     def __init__(self, size=0):
-        """Initialize the square.
+        """Initialize square.
+
         Args:
-            size (int): The side length of the square.
+            size (int): The size of the square.
         """
         self.size = size
 
@@ -19,12 +20,10 @@ class Square:
 
     @size.setter
     def size(self, value):
-        """Set the size of the square with validation.
+        """Set the size of the square.
+
         Args:
-            value (int): The new size.
-        Raises:
-            TypeError: If value is not an integer.
-            ValueError: If value is less than 0.
+            value (int): The new size of the square.
         """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
@@ -37,9 +36,10 @@ class Square:
         return self.__size ** 2
 
     def my_print(self):
-        """Print the square with the '#' character to stdout."""
+        """Print the square with the character #."""
         if self.__size == 0:
             print("")
-        else:
-            for i in range(self.__size):
-                print("#" * self.__size)
+            return
+
+        for i in range(self.__size):
+            print("#" * self.__size)

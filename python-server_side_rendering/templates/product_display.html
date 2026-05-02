@@ -1,15 +1,17 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Product Display</title>
+    <title>Products</title>
 </head>
 <body>
-    <h1>Product Display</h1>
+    {% include 'header.html' %}
+
+    <h1>Products</h1>
 
     {% if error %}
         <p>{{ error }}</p>
     {% else %}
-        <table border="1">
+        <table>
             <thead>
                 <tr>
                     <th>Name</th>
@@ -19,14 +21,16 @@
             </thead>
             <tbody>
                 {% for product in products %}
-                    <tr>
-                        <td>{{ product.name }}</td>
-                        <td>{{ product.category }}</td>
-                        <td>{{ product.price }}</td>
-                    </tr>
+                <tr>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.category }}</td>
+                    <td>{{ product.price }}</td>
+                </tr>
                 {% endfor %}
             </tbody>
         </table>
     {% endif %}
+
+    {% include 'footer.html' %}
 </body>
 </html>

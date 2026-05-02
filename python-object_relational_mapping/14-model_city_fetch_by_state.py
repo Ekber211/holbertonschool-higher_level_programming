@@ -1,10 +1,12 @@
 #!/usr/bin/python3
-"""Prints all City objects from the database"""
+"""Module that lists all cities with their states."""
+
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 from model_city import City
+
 
 if __name__ == "__main__":
     engine = create_engine(
@@ -13,11 +15,15 @@ if __name__ == "__main__":
         ),
         pool_pre_ping=True
     )
+
     Session = sessionmaker(bind=engine)
     session = Session()
-    rows = session.query(State, City).filter(
-        State.id == City.state_id
-    ).order_by(City.id).all()
-    for state, city in rows:
-        print("{}: ({}) {}".format(state.name, city.id, city.name))
+
+    results = session.query(State.name, City.id, City.name)\
+        .join(City, State.id == City.state_id)\
+        .order_by(City.id).all()
+
+    for state_name, city_id, city_name in results:
+        print(f"{state_name}: ({city_id}) {city_name}")
+
     session.close()

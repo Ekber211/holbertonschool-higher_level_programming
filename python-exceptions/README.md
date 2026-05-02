@@ -1,1 +1,1 @@
-I am Readme file
+This is a README file for Python exceptions tasks.

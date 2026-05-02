@@ -1,1 +1,1 @@
-Hi. I dont know who are you but welcome my directory.
+This is a README file for Python abstract classes tasks
